@@ -2,14 +2,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Répartition des troupes</title>
+<title>WOS-Tollkit</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 20px; }
+  body { font-family: Arial, sans-serif; margin: 20px; background-color:#000; color: #9f9;}
   label { display: block; margin-top: 10px; }
-  fieldset { margin-top: 15px; }
+  fieldset { margin-top: 15px;}
+  input { margin-top: 15px; background-color : #9f9; color : #000}
   table { border-collapse: collapse; margin-top: 20px; }
   th, td { border: 1px solid #ccc; padding: 5px 10px; text-align: right; }
-  th { background: #f0f0f0; }
+  th { background: #9f9; color :#000; }
 </style>
 </head>
 <body>
@@ -18,42 +19,42 @@
 
 <form id="form">
   <label>Nombre de troupes Full march :
-    <input type="number" id="fullMarch" required>
+    <input type="number" id="fullMarch" >
   </label>
   <label>Nombre d'escouade (1 à 6) :
-    <input type="number" id="escouades" min="1" max="6" required>
+    <input type="number" id="escouades" min="1" max="6" >
   </label>
 
   <fieldset>
     <legend>Infanterie</legend>
-    <label>Nombre 1 : <input type="number" id="inf1" required></label>
-    <label>Nombre 2 : <input type="number" id="inf2" required></label>
+    <label>Nombre 1 : <input type="number" id="inf1" ></label>
+    <label>Nombre 2 : <input type="number" id="inf2" ></label>
   </fieldset>
 
   <fieldset>
     <legend>Lancier</legend>
-    <label>Nombre 1 : <input type="number" id="lan1" required></label>
-    <label>Nombre 2 : <input type="number" id="lan2" required></label>
+    <label>Nombre 1 : <input type="number" id="lan1" ></label>
+    <label>Nombre 2 : <input type="number" id="lan2" ></label>
   </fieldset>
 
   <fieldset>
     <legend>Tireur</legend>
-    <label>Nombre 1 : <input type="number" id="tir1" required></label>
-    <label>Nombre 2 : <input type="number" id="tir2" required></label>
+    <label>Nombre 1 : <input type="number" id="tir1" ></label>
+    <label>Nombre 2 : <input type="number" id="tir2" ></label>
   </fieldset>
 
   <fieldset>
     <legend>Taux Full March (%)</legend>
-    <label>Infanterie : <input type="number" id="fm_inf" value="0" required></label>
-    <label>Lancier : <input type="number" id="fm_lan" value="40" required></label>
-    <label>Tireur : <input type="number" id="fm_tir" value="60" required></label>
+    <label>Infanterie : <input type="number" id="fm_inf" value="0" ></label>
+    <label>Lancier : <input type="number" id="fm_lan" value="40" ></label>
+    <label>Tireur : <input type="number" id="fm_tir" value="60" ></label>
   </fieldset>
 
   <fieldset>
     <legend>Patron escouade (unités)</legend>
-    <label>Infanterie : <input type="number" id="pat_inf" value="7000" required></label>
-    <label>Lancier : <input type="number" id="pat_lan" value="13000" required></label>
-    <label>Tireur : <input type="number" id="pat_tir" value="55000" required></label>
+    <label>Infanterie : <input type="number" id="pat_inf" value="7000" ></label>
+    <label>Lancier : <input type="number" id="pat_lan" value="13000" ></label>
+    <label>Tireur : <input type="number" id="pat_tir" value="55000" ></label>
   </fieldset>
 
   <button type="button" onclick="calculer()">Calculer</button>
