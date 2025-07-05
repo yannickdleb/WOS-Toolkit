@@ -1,177 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Basic Calculator WOS - Toolkit</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      background: #f9f9f9;
-    }
-    .calculator {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      margin: auto;
-    }
-    .calculator label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-    .calculator input, .calculator select {
-      width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
-      margin-top: 0.25rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .calculator button {
-      margin-top: 1.5rem;
-      padding: 0.7rem 2rem;
-      font-size: 1rem;
-      background: #1976d2;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .calculator button:hover {
-      background: #125a9c;
-    }
-    .result {
-      margin-top: 2rem;
-      font-size: 1.2rem;
-      color: #2c5e1a;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Répartition des troupes</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  label { display: block; margin-top: 10px; }
+  fieldset { margin-top: 15px; }
+  table { border-collapse: collapse; margin-top: 20px; }
+  th, td { border: 1px solid #ccc; padding: 5px 10px; text-align: right; }
+  th { background: #f0f0f0; }
+</style>
 </head>
 <body>
-  <div class="calculator">
-    <h2>Bear trap squad calculator</h2>
-    <form id="calcForm">
-      <table>
-	<th>
-		<td>T11</td>
-		<td>T10</td>
-		<td>T9</td>
-		<td>T8</td>
-		<td>T7</td>
-		<td>T6</td>
-		<td>T5</td>
-		<td>T4</td>
-		<td>T3</td>
-		<td>T2</td>
-		<td>T1</td>
-	</th>
-	<tr>
-		<td>Infantry</td>
-		<td><input type="number" id="IT11" name="IT11" step="any" ></td>
-      		<td><input type="number" id="IT10" name="IT10" step="any" ></td>
-      		<td><input type="number" id="IT9" name="IT9" step="any" ></td>
-      		<td><input type="number" id="IT8" name="IT8" step="any" ></td>
-      		<td><input type="number" id="IT7" name="IT7" step="any" ></td>
-      		<td><input type="number" id="IT6" name="IT6" step="any" ></td>
-      		<td><input type="number" id="IT5" name="IT5" step="any" ></td>
-      		<td><input type="number" id="IT4" name="IT4" step="any" ></td>
-      		<td><input type="number" id="IT3" name="IT3" step="any" ></td>
-      		<td><input type="number" id="IT2" name="IT2" step="any" ></td>
-      		<td><input type="number" id="IT1" name="IT1" step="any" ></td>
-	</tr>
-	<tr>
-		<td>Lancer</td>
-		<td><input type="number" id="LT11" name="LT11" step="any" ></td>
-      		<td><input type="number" id="LT10" name="LT10" step="any" ></td>
-      		<td><input type="number" id="LT9" name="LT9" step="any" ></td>
-      		<td><input type="number" id="LT8" name="LT8" step="any" ></td>
-      		<td><input type="number" id="LT7" name="LT7" step="any" ></td>
-      		<td><input type="number" id="LT6" name="LT6" step="any" ></td>
-      		<td><input type="number" id="LT5" name="LT5" step="any" ></td>
-      		<td><input type="number" id="LT4" name="LT4" step="any" ></td>
-      		<td><input type="number" id="LT3" name="LT3" step="any" ></td>
-      		<td><input type="number" id="LT2" name="LT2" step="any" ></td>
-      		<td><input type="number" id="LT1" name="LT1" step="any" ></td>
-	</tr>
-	<tr>
-		<td>Marksman</td>
-		<td><input type="number" id="MT11" name="MT11" step="any" ></td>
-      		<td><input type="number" id="MT10" name="MT10" step="any" ></td>
-      		<td><input type="number" id="MT9" name="MT9" step="any" ></td>
-      		<td><input type="number" id="MT8" name="MT8" step="any" ></td>
-      		<td><input type="number" id="MT7" name="MT7" step="any" ></td>
-      		<td><input type="number" id="MT6" name="MT6" step="any" ></td>
-      		<td><input type="number" id="MT5" name="MT5" step="any" ></td>
-      		<td><input type="number" id="MT4" name="MT4" step="any" ></td>
-      		<td><input type="number" id="MT3" name="MT3" step="any" ></td>
-      		<td><input type="number" id="MT2" name="MT2" step="any" ></td>
-      		<td><input type="number" id="MT1" name="MT1" step="any" ></td>
-	</tr>
-      </table>
 
+<h2>Répartition des troupes</h2>
 
-      <label for="FullMarch">Full March Size :</label>
-      <input type="number" id="FullMarch" name="FullMarch" step="any" >
+<form id="form">
+  <label>Nombre de troupes Full march :
+    <input type="number" id="fullMarch" required>
+  </label>
+  <label>Nombre d'escouade (1 à 6) :
+    <input type="number" id="escouades" min="1" max="6" required>
+  </label>
 
-      <label for="SquadNumer">Available squads :</label>
-      <input type="number" id="SquadNumber" name="SquadNumer" step="any" >
+  <fieldset>
+    <legend>Infanterie</legend>
+    <label>Nombre 1 : <input type="number" id="inf1" required></label>
+    <label>Nombre 2 : <input type="number" id="inf2" required></label>
+  </fieldset>
 
+  <fieldset>
+    <legend>Lancier</legend>
+    <label>Nombre 1 : <input type="number" id="lan1" required></label>
+    <label>Nombre 2 : <input type="number" id="lan2" required></label>
+  </fieldset>
 
-      <button type="submit">Calculate</button>
-	<div id="Results"></div>
-     </div>
-  <script>
-    document.getElementById('calcForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+  <fieldset>
+    <legend>Tireur</legend>
+    <label>Nombre 1 : <input type="number" id="tir1" required></label>
+    <label>Nombre 2 : <input type="number" id="tir2" required></label>
+  </fieldset>
 
-      const IT11 = parseFloat(document.getElementById('IT11').value);
-      const IT10 = parseFloat(document.getElementById('IT10').value);
-      const IT9 = parseFloat(document.getElementById('IT9').value);
-      const IT8 = parseFloat(document.getElementById('IT8').value);
-      const IT7 = parseFloat(document.getElementById('IT7').value);
-      const IT6 = parseFloat(document.getElementById('IT6').value);
-      const IT5 = parseFloat(document.getElementById('IT5').value);
-      const IT4 = parseFloat(document.getElementById('IT4').value);
-      const IT3 = parseFloat(document.getElementById('IT3').value);
-      const IT2 = parseFloat(document.getElementById('IT2').value);
-      const IT1 = parseFloat(document.getElementById('IT1').value);
+  <fieldset>
+    <legend>Taux Full March (%)</legend>
+    <label>Infanterie : <input type="number" id="fm_inf" value="0" required></label>
+    <label>Lancier : <input type="number" id="fm_lan" value="40" required></label>
+    <label>Tireur : <input type="number" id="fm_tir" value="60" required></label>
+  </fieldset>
 
-      const LT11 = parseFloat(document.getElementById('LT11').value);
-      const LT10 = parseFloat(document.getElementById('LT10').value);
-      const LT9 = parseFloat(document.getElementById('LT9').value);
-      const LT8 = parseFloat(document.getElementById('LT8').value);
-      const LT7 = parseFloat(document.getElementById('LT7').value);
-      const LT6 = parseFloat(document.getElementById('LT6').value);
-      const LT5 = parseFloat(document.getElementById('LT5').value);
-      const LT4 = parseFloat(document.getElementById('LT4').value);
-      const LT3 = parseFloat(document.getElementById('LT3').value);
-      const LT2 = parseFloat(document.getElementById('LT2').value);
-      const LT1 = parseFloat(document.getElementById('LT1').value);
+  <fieldset>
+    <legend>Patron escouade (unités)</legend>
+    <label>Infanterie : <input type="number" id="pat_inf" value="7000" required></label>
+    <label>Lancier : <input type="number" id="pat_lan" value="13000" required></label>
+    <label>Tireur : <input type="number" id="pat_tir" value="55000" required></label>
+  </fieldset>
 
-      const MT11 = parseFloat(document.getElementById('MT11').value);
-      const MT10 = parseFloat(document.getElementById('MT10').value);
-      const MT9 = parseFloat(document.getElementById('MT9').value);
-      const MT8 = parseFloat(document.getElementById('MT8').value);
-      const MT7 = parseFloat(document.getElementById('MT7').value);
-      const MT6 = parseFloat(document.getElementById('MT6').value);
-      const MT5 = parseFloat(document.getElementById('MT5').value);
-      const MT4 = parseFloat(document.getElementById('MT4').value);
-      const MT3 = parseFloat(document.getElementById('MT3').value);
-      const MT2 = parseFloat(document.getElementById('MT2').value);
-      const MT1 = parseFloat(document.getElementById('MT1').value);
+  <button type="button" onclick="calculer()">Calculer</button>
+</form>
 
-      const FM = parseFloat(document.getElementById('FullMarch').value);
-      const SN = parseFloat(document.getElementById('SquadNumber').value);
+<div id="result"></div>
 
+<script>
+function calculer() {
+  const fullMarch = parseInt(document.getElementById('fullMarch').value);
+  const escouades = parseInt(document.getElementById('escouades').value);
 
+  let inf = [parseInt(document.getElementById('inf1').value), parseInt(document.getElementById('inf2').value)];
+  let lan = [parseInt(document.getElementById('lan1').value), parseInt(document.getElementById('lan2').value)];
+  let tir = [parseInt(document.getElementById('tir1').value), parseInt(document.getElementById('tir2').value)];
 
-        
-      document.getElementById('Results').textContent +="Full March :";
-      document.getElementById('Results').textContent +=FM;
+  const fm_inf = parseFloat(document.getElementById('fm_inf').value) / 100;
+  const fm_lan = parseFloat(document.getElementById('fm_lan').value) / 100;
+  const fm_tir = parseFloat(document.getElementById('fm_tir').value) / 100;
+
+  const pat_inf = parseInt(document.getElementById('pat_inf').value);
+  const pat_lan = parseInt(document.getElementById('pat_lan').value);
+  const pat_tir = parseInt(document.getElementById('pat_tir').value);
+
+  const result = {
+    "Full march": [0, 0, 0, 0, 0, 0],
+  };
+
+  // === Full march ===
+  let full_inf_total = Math.min(Math.floor(fullMarch * fm_inf), inf[0]+inf[1]);
+  let full_lan_total = Math.min(Math.floor(fullMarch * fm_lan), lan[0]+lan[1]);
+  let full_tir_total = Math.min(Math.floor(fullMarch * fm_tir), tir[0]+tir[1]);
+
+  let full_inf1 = Math.min(full_inf_total, inf[0]);
+  let full_inf2 = full_inf_total - full_inf1;
+  inf[0] -= full_inf1;
+  inf[1] -= full_inf2;
+
+  let full_lan1 = Math.min(full_lan_total, lan[0]);
+  let full_lan2 = full_lan_total - full_lan1;
+  lan[0] -= full_lan1;
+  lan[1] -= full_lan2;
+
+  let full_tir1 = Math.min(full_tir_total, tir[0]);
+  let full_tir2 = full_tir_total - full_tir1;
+  tir[0] -= full_tir1;
+  tir[1] -= full_tir2;
+
+  result["Full march"] = [full_inf1, full_inf2, full_lan1, full_lan2, full_tir1, full_tir2];
+
+  // === Ventilation escouades ===
+  const maxEscouade = 75000;
+  const pattern = [pat_inf, pat_lan, pat_tir];
+  let escResults = [];
+
+  for (let i = 0; i < escouades; i++) {
+    if (inf[0]+inf[1]+lan[0]+lan[1]+tir[0]+tir[1] === 0) break;
+
+    let escInf = Math.min(pattern[0], inf[0]+inf[1]);
+    let escLan = Math.min(pattern[1], lan[0]+lan[1]);
+    let escTir = Math.min(pattern[2], tir[0]+tir[1]);
+
+    let total = escInf+escLan+escTir;
+
+    if (escTir < pattern[2]) {
+      let manqueTir = pattern[2] - escTir;
+      let lanDispo = (lan[0]+lan[1]) - escLan;
+      let supplLan = Math.min(manqueTir, lanDispo);
+      escLan += supplLan;
+      manqueTir -= supplLan;
+
+      let infDispo = (inf[0]+inf[1]) - escInf;
+      let supplInf = Math.min(manqueTir, infDispo);
+      escInf += supplInf;
+    }
+
+    total = escInf+escLan+escTir;
+    if (total > maxEscouade) {
+      let ratio = maxEscouade / total;
+      escInf = Math.floor(escInf*ratio);
+      escLan = Math.floor(escLan*ratio);
+      escTir = Math.floor(escTir*ratio);
+    }
+
+    let escInf1 = Math.min(escInf, inf[0]);
+    let escInf2 = escInf - escInf1;
+    inf[0] -= escInf1;
+    inf[1] -= escInf2;
+
+    let escLan1 = Math.min(escLan, lan[0]);
+    let escLan2 = escLan - escLan1;
+    lan[0] -= escLan1;
+    lan[1] -= escLan2;
+
+    let escTir1 = Math.min(escTir, tir[0]);
+    let escTir2 = escTir - escTir1;
+    tir[0] -= escTir1;
+    tir[1] -= escTir2;
+
+    escResults.push([escInf1, escInf2, escLan1, escLan2, escTir1, escTir2]);
+  }
+
+  const totals = [0,0,0,0,0,0];
+  totals.forEach((_, idx) => {
+    totals[idx] += result["Full march"][idx];
+  });
+  escResults.forEach(line => {
+    line.forEach((val, idx) => {
+      totals[idx] += val;
     });
-  </script>
+  });
+
+  let html = `<table>
+    <tr><th></th><th>Infanterie 1</th><th>Infanterie 2</th><th>Lancier 1</th><th>Lancier 2</th><th>Tireur 1</th><th>Tireur 2</th></tr>`;
+
+  html += `<tr><td>Full march</td>${result["Full march"].map(v => `<td>${v}</td>`).join('')}</tr>`;
+
+  escResults.forEach((line, i) => {
+    html += `<tr><td>Escouade ${i+1}</td>${line.map(v => `<td>${v}</td>`).join('')}</tr>`;
+  });
+
+  html += `<tr><th>Total</th>${totals.map(v => `<th>${v}</th>`).join('')}</tr>`;
+  html += `</table>`;
+
+  document.getElementById('result').innerHTML = html;
+}
+</script>
+
 </body>
 </html>
